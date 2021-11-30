@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Proyectos de PDI</title>
+
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+
+
+    <script>
+    function updateImage1()
+    {
+        var curFile = imagen1.files;
+     image1 = new Image();
+
+        source = curFile[0].name;
+        source = curFile[0].name;
+        image1.src = window.URL.createObjectURL(curFile[0]);
+        image1.onload = function()
+        {
+            canvas1.width  = image1.width;
+            canvas1.height = image1.height;
+            ctx1.drawImage(image1, 0, 0);
+        }
+      }
+
+    function updateImage2()
+    {
+        var curFile = imagen2.files;
+        image2 = new Image();
+        source = curFile[0].name;
+        source = curFile[0].name;
+        image2.src = window.URL.createObjectURL(curFile[0]);
+        image2.onload = function()
+        {
+          canvas2.width  = image2.width;
+          canvas2.height = image2.height;
+          ctx2.drawImage(image2, 0, 0);
+        }
+  }
+  function ventanaSecundaria (URL){
+    varwindow.open(URL,"ventana1","width=120,height=300,scrollbars=NO")
+  }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Procesamiento Digital de Imagenes</h3>
+            </div>
+
+
+            <ul class="list-unstyled components">
+                <p>Juan Guillermo Avendaño Ramírez</p>
+                <li class="active">
+                    <a href="#PrimerParcial" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Primer Parcial</a>
+                    <ul class="collapse list-unstyled" id="PrimerParcial">
+                      <li>
+                          <a href="#" onclick="separar();return false;">Separar Color</a>
+                      </li>
+                      <li>
+                          <a href="#" onclick="BN();return false;">Convertir a Escala de Grises</a>
+                      </li>
+                      <li>
+                          <a href="#" onclick="negativo();return false;">Negativo</a>
+                      </li>
+                      <li>
+                          <a href="#" onclick="colorear();return false;">Colorear imagen</a>
+                      </li>
+                      <li>
+                          <a href="#" onclick="selecA();return false;">Seleccionar área</a>
+                      </li>
+                      <li class="active">
+                          <a href="#BordSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Bordes a Grises</a>
+                          <ul class="collapse list-unstyled" id="BordSubmenu">
+                              <li>
+                                  <a href="#" onclick="bordesGH();return false;">Filas</a>
+                              </li>
+                              <li>
+                                <a  href="#" onclick="bordesGV();return false;" >Columnas</a>
+                              </li>
+
+                              <li>
+                                <a href="#" onclick="bordesGD();return false;">Diagonales</a>
+                              </li>
+
+                              <li>
+                                <a href="#"  onclick="bordesGT();return false;" >Todos</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="active">
+                          <a href="#BordCSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Bordes a color</a>
+                          <ul class="collapse list-unstyled" id="BordCSubmenu">
+                              <li>
+                                  <a href="#"  onclick="bordesCH();return false;">Filas </a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="bordesCV();return false;" >Columnas </a>
+                              </li>
+
+                              <li>
+                                <a href="#" onclick="bordesCD();return false;">Diagonales</a>
+                              </li>
+
+                              <li>
+                                <a  href="#" onclick="bordesCT();return false;">Todos</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="active">
+                          <a href="#GradSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gradiente</a>
+                          <ul class="collapse list-unstyled" id="GradSubmenu">
+                              <li>
+                                  <a href="#"  onclick="degradadoH();return false;">Horizontal</a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="degradadoV();return false;">Vertical</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="active">
+                          <a href="#histoSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Histogramas</a>
+                          <ul class="collapse list-unstyled" id="histoSubmenu">
+                              <li>
+                                  <a href="#" onclick="histoC();return false;">Color</a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="histoG();return false;">Escala de grises</a>
+                              </li>
+                              <li>
+                                <a href="#" onclick="normalizarH();return false;">Normalizar Histograma</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li>
+                          <a href="#OpSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Operadores Lógicos</a>
+                          <ul class="collapse list-unstyled" id="OpSubmenu">
+                              <li>
+                                  <a href="#" onclick="AND();return false;">AND</a>
+                              </li>
+                              <li>
+                                  <a href="#"  onclick="OR();return false;">OR</a>
+                              </li>
+                              <li>
+                                  <a href="#"  onclick="XOR();return false;">XOR</a>
+                              </li>
+                          </ul>
+                      </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#SegundoP" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Segundo Parcial</a>
+                    <ul class="collapse list-unstyled" id="SegundoP">
+                        <li>
+                            <a href="#" onclick="blurG();return false;">Blur</a>
+                        </li>
+
+                        <li class="active">
+                            <a href="#Conv" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Convolucion</a>
+                            <ul class="collapse list-unstyled" id="Conv">
+                              <li>
+                                  <a href="#" onclick="ConvolucionBordesD();return false;">Convolucion</a>
+                              </li>
+                              <li>
+                                  <a href="#" onclick="ruido();return false;">Ruido</a>
+                              </li>
+                                <li>
+                                  <a  href="#" onclick="Faler();return false;" >Faler</a>
+                                </li>
+
+                                <li>
+                                  <a href="#" onclick="Kirsch();return false;">Kirsch</a>
+                                </li>
+
+                                <li>
+                                  <a href="#"  onclick="Prewitt();return false;" >Prewitt</a>
+                                </li>
+
+                                <li>
+                                  <a href="#"  onclick="Sobel();return false;" >Sobel</a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                          <button type="button"  class="btn btn-outline-dark" data-toggle="modal" data-target="#matrizModal">Modificar máscara</button>
+                        </li>
+
+                        <li class="active">
+                            <a href="#OpeArit" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Operaciones Aritmeticas</a>
+                            <ul class="collapse list-unstyled" id="OpeArit">
+                                <li>
+                                    <a href="#" onclick="Suma();return false;">Suma</a>
+                                </li>
+                                <li>
+                                  <a  href="#" onclick="bordesGV();return false;" >Resta</a>
+                                </li>
+
+                                <li>
+                                  <a href="#" onclick="bordesGD();return false;">Suma Normalizada</a>
+                                </li>
+
+                                <li>
+                                  <a href="#"  onclick="bordesGT();return false;" >Resta Normalizada</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+
+                                <li>
+                                    <a href="#colorSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Colores</a>
+                                    <ul class="collapse list-unstyled" id="colorSubmenu">
+                                      <li>
+                                            <a class="waves-effect waves-blue" href="#">
+                                            <input type="color" id="colorpicker1" value="#000000">
+                                            </a>
+                                     </li>
+                                     <li>
+                                            <a class="waves-effect waves-blue" href="#">
+                                            <input type="color" id="colorpicker2" value="#ffffff">
+                                            </a>
+                                      </li>
+                                    </ul>
+                                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                  <button type="button" id="sidebarCollapse" class="navbar-btn">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+                  <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" >
+                      <i class="fas fa-align-justify"></i>
+                  </button>
+                    <div class="file-field input-field">
+                       <div class="btn1">
+                           <span>Imagen 1</span>
+                           <input type="file" id="imagen1" accept=".jpg,.jpeg,.png" multiple>
+                       </div>
+                   </div>
+                   <div class="file-field input-field">
+                      <div class="btn1">
+                          <span>Imagen 2</span>
+                          <input type="file" id="imagen2" accept=".jpg,.jpeg,.png" multiple>
+                      </div>
+                  </div>
+
+                </div>
+            </nav>
+
+            <!-- Aquí se muestran las imagenes  -->
+            <table>
+              <tr>
+                  <td>
+                      <div id="ima1">
+                          <canvas id="canvasImagen1" class="myid_templates_editor_canvas"></canvas>
+                      </div>
+                  </td>
+                  <td>
+                      <div id="ima2">
+                          <canvas id="canvasImagen2" class="myid_templates_editor_canvas"></canvas>
+                      </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <div id="ima3">
+                          <canvas id="canvasImagen3" class="myid_templates_editor_canvas" ></canvas>
+                      </div>
+                  </td>
+                  <td>
+                      <div id="ima4">
+                          <canvas id="canvasImagen4" class="myid_templates_editor_canvas" ></canvas>
+                      </div>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <div id="ima5">
+                          <canvas id="canvasImagen5" class="myid_templates_editor_canvas" ></canvas>
+                      </div>
+                  </td>
+                  <td>
+                      <div id="ima6">
+                          <canvas id="canvasImagen6" class="myid_templates_editor_canvas" ></canvas>
+                      </div>
+                  </td>
+              </tr>
+        </table>
+    </div>
+  </div>
+<!-- Modal inicia -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="titulo"></h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body" id="cuerpo"></div>
+      <div class="modal-body" id="txt"></div>
+      <div class="modal-body" id="txt1"></div>
+      <div class="modal-body" id="txt3"></div>
+      <div class="modal-body" id="txt4"></div>
+      <div class="modal-body" id="txt2"></div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- Modal termina  -->
+
+<div class="modal fade" id="matrizModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modificar Matriz</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="matriz">
+          <div class="container-fluid" id="contmat">
+              <div class="row" >
+                <input type="number" id="mat1" value="-1" style="background-color:white;width:45px" >
+                <input type="number" id="mat2" value="-1" style="background-color:white;width:45px" >
+                <input type="number" id="mat3" value="0" style="background-color:white;width:45px" >
+              </div>
+
+              <!-- Or let Bootstrap automatically handle the layout -->
+              <div class="row">
+                <input type="number" id="mat3" value="-1" style="background-color:white;width:45px" >
+                <input type="number" id="mat4" value="3" style="background-color:white;width:45px" >
+                <input type="number" id="mat5" value="0" style="background-color:white;width:45px" >
+              </div>
+
+            <div class="row">
+              <input type="number" id="mat6" value="0" style="background-color:white;width:45px" >
+              <input type="number" id="mat7" value="0" style="background-color:white;width:45px" >
+              <input type="number" id="mat8" value="0" style="background-color:white;width:45px" >
+            </div>
+          </div>
+          <div style="padding:10px" >
+              <button type="button" id="men">
+                  <span aria-hidden="true">-</span>
+              </button>
+              <input type="number" id="TamMat" value="3" style="background-color:white;width:45px" >
+              <button type="button" id="mas">
+                  <span aria-hidden="true">+</span>
+              </button>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" value="Aplicar" >
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <!--Popper.JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+   <!--Bootstrap JS
+    <!-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+
+    var R1=0,G1=0,B1=0;
+    var R2=0,G2=0,B2=0;
+    var i=0,j=0,k=0,l=0;
+
+    var image1 = new Image();
+    var image2 = new Image();
+    var image3 = new Image();
+    var image4 = new Image();
+    var image5 = new Image();
+    var image6 = new Image();
+
+    var canvas1 = document.getElementById('canvasImagen1');
+    var canvas2 = document.getElementById('canvasImagen2');
+    var canvas3 = document.getElementById('canvasImagen3');
+    var canvas4 = document.getElementById('canvasImagen4');
+    var canvas5 = document.getElementById('canvasImagen5');
+    var canvas6 = document.getElementById('canvasImagen6');
+    var ctx1= canvas1.getContext('2d');
+    var ctx2= canvas2.getContext('2d');
+    var ctx3= canvas3.getContext('2d');
+    var ctx4= canvas4.getContext('2d');
+    var ctx5= canvas5.getContext('2d');
+    var ctx6= canvas6.getContext('2d');
+
+    var corx1=0;
+    var corx2=0;
+    var cory1=0;
+    var cory2=0;
+
+    var corinitx=corfinx=0;
+    var corinity=corfiny=0;
+    var numClick=0;
+
+    var imagen1 = document.getElementById('imagen1');
+    var imagen2 = document.getElementById('imagen2');
+    imagen1.addEventListener('change', updateImage1);
+    imagen2.addEventListener('change', updateImage2);
+
+
+
+
+    let matriz=[9];
+    matriz.fill(0);
+    matriz[0]=-1;
+    matriz[1]=-1;
+    matriz[3]=-1;
+    matriz[4]=1;
+
+    /* Para mostrar tu modal esto esta es la unica linea que debes poner al incio de cada funcion
+      y mediante innerhtml cambias el contenido que quieres que se muestre.
+      Basta con poner estas tres lineas con el titulo y cuerpo correspondiente
+        en cada funcion que tienes y ya funciona
+    */
+    $('#exampleModal').modal('toggle')
+    /*Estas son para cambiar el contenido de titulo y cuerpo
+    se remplaza el contenido anterior*/
+    $( "#titulo" ).html( "INSTRUCCIONES" );
+    $( "#cuerpo" ).html( "1.- Antes de seleccionar una operación debes subir tus imagenes/imagen que vas a utilizar. " );
+    $( "#txt" ).html(" 2.-Si vas a utilizar alguna función con colores, encargate de elegirlos primero.")
+    $( "#txt1" ).html(" 3.- Los colores están al final, abre el menú desplegable para seleccionarlos. ")
+    $( "#txt3" ).html("4.- En el menú desplegable del segundo parcial puedes modficar la máscara de la convolución para los bordes, debes elegir una antes de hacer la operación de los bordes.")
+    $( "#txt4" ).html(" 5.- La máscara del no afecta al efecto blur, sin embargo, el tamaño de la matriz que ingreses sí, lo hace más o menos borroso.")
+    $( "#txt2" ).html(" Disfruta probando los procesamientos que realice :D")
+
+    var color1 = document.getElementById('colorpicker1');
+    color1.addEventListener('change', updateColor1);
+    var color2 = document.getElementById('colorpicker2');
+    color2.addEventListener('change', updateColor2);
+
+    function clear(){
+        //$('#ima1').addClass('d-none');
+        $('#ima2').addClass('d-none');
+        $('#ima3').addClass('d-none');
+        $('#ima4').addClass('d-none');
+        $('#ima5').addClass('d-none');
+        $('#ima6').addClass('d-none');
+
+    }
+
+
+    //crecer matriz
+    $(document).ready(function(){
+      $('#mas').on('click',function(){
+        inc=document.getElementById("TamMat");
+
+        if((inc.value)<17){
+          inc.value=parseInt(inc.value)+2;
+          cargarMatriz()
+        }
+      });
+
+      $('#men').on('click',function(){
+        inc=document.getElementById("TamMat");
+
+        if((inc.value)>3){
+          inc.value=parseInt(inc.value)-2;
+        cargarMatriz()
+        }
+      });
+
+      $("#matriz").submit(function(event) {
+          event.preventDefault();
+          console.log("Formulario enviando")
+          matriz=[];
+          conta=0;
+          $("#matriz").find(':input').each(function() {
+              var elemento= this;
+              matriz.push(parseInt(elemento.value))
+          });
+          console.log(matriz)
+
+      })
+    })
+    //Carga la matrizAux
+    function cargarMatriz(){
+      inc=document.getElementById("TamMat");
+      contenedor=document.getElementById("contmat")
+      contenedor.innerHTML=""
+      for(var i=0;i<parseInt(inc.value);i++){
+        midiv=document.createElement("div");
+        midiv.classList.add("row");
+        for(j=0;j<(parseInt(inc.value));j++){
+            input=document.createElement("input");
+            input.value="1"
+              input.required=true;
+              input.type="number"
+              input.style="width:45px;"
+            midiv.appendChild(input);
+        }
+        contenedor.appendChild(midiv)
+      }
+    }
+    //Modificar matriz
+
+    //Convolución con división
+    function ruido(){
+      clear();
+      BN1();
+      tam=document.getElementById("TamMat");
+      console.log(tam.value)
+      tamMatriz=parseInt(tam.value);
+      //tamMatriz=tamMatriz*tamMatriz;
+      div=0;
+      console.log(matriz)
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      limiteSup=(tamMatriz-1)/2;
+      limiteInf=((tamMatriz-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+      for(j=0;j<(tamMatriz*tamMatriz);j++){
+        div=div+matriz[j];
+      }
+      console.log(div)
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma=suma+matriz[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          suma=suma/div;
+          suma=suma>255?255:suma;
+          suma=suma<0?0:suma;
+          pixels3[i*4]=suma;
+          pixels3[i*4+1]=suma;
+          pixels3[i*4+2]=suma;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+    //Sobel
+    function Sobel(){
+      clear();
+      BN1();
+      $('#ima1').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      let matrizAux = new Array(9);
+      matrizAux.fill(0);
+      matrizAux[0]=1;
+      matrizAux[1]=1;
+      matrizAux[2]=1;
+      matrizAux[3]=-1;
+      matrizAux[4]=-2;
+      matrizAux[5]=1;
+      matrizAux[6]=-1;
+      matrizAux[7]=-1;
+      matrizAux[8]=1;
+      console.log(matrizAux)
+      limiteSup=(Math.sqrt(matrizAux.length)-1)/2;
+      limiteInf=((Math.sqrt(matrizAux.length)-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma+=matrizAux[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          pixels3[i*4]=suma;
+          pixels3[i*4+1]=suma;
+          pixels3[i*4+2]=suma;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+    //Prewitt
+    function Prewitt(){
+      clear();
+      BN1();
+      $('#ima1').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      let matrizAux = new Array(9);
+      matrizAux.fill(0);
+      matrizAux[0]=-1;
+      matrizAux[1]=-1;
+      matrizAux[2]=1;
+      matrizAux[3]=-1;
+      matrizAux[4]=-2;
+      matrizAux[5]=1;
+      matrizAux[6]=1;
+      matrizAux[7]=1;
+      matrizAux[8]=1;
+      console.log(matrizAux)
+      limiteSup=(Math.sqrt(matrizAux.length)-1)/2;
+      limiteInf=((Math.sqrt(matrizAux.length)-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma+=matrizAux[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          pixels3[i*4]=suma;
+          pixels3[i*4+1]=suma;
+          pixels3[i*4+2]=suma;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+    //Kirsch
+    function Kirsch(){
+      clear();
+      BN1();
+      $('#ima1').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      let matrizAux = new Array(9);
+      matrizAux.fill(0);
+      matrizAux[0]=-3;
+      matrizAux[1]=5;
+      matrizAux[2]=5;
+      matrizAux[3]=-3;
+      matrizAux[4]=0;
+      matrizAux[5]=5;
+      matrizAux[6]=-3;
+      matrizAux[7]=-3;
+      matrizAux[8]=-3;
+      console.log(matrizAux)
+      limiteSup=(Math.sqrt(matrizAux.length)-1)/2;
+      limiteInf=((Math.sqrt(matrizAux.length)-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma+=matrizAux[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          pixels3[i*4]=suma;
+          pixels3[i*4+1]=suma;
+          pixels3[i*4+2]=suma;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+    //Faler
+    function Faler(){
+      clear();
+      BN1();
+      $('#ima1').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      let matrizAux = new Array(9);
+      matrizAux.fill(0);
+      matrizAux[0]=-1;
+      matrizAux[3]=-1;
+      matrizAux[6]=-1;
+      matrizAux[8]=1;
+      matrizAux[5]=1;
+      matrizAux[2]=1;
+      console.log(matrizAux)
+      limiteSup=(Math.sqrt(matrizAux.length)-1)/2;
+      limiteInf=((Math.sqrt(matrizAux.length)-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma+=matrizAux[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          pixels3[i*4]=suma;
+          pixels3[i*4+1]=suma;
+          pixels3[i*4+2]=suma;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+
+    //Efecto blur
+    function blurG(){
+      clear();
+      BN1();
+
+      $('#ima2').addClass('d-none');
+      tam=document.getElementById("TamMat");
+      console.log(tam.value)
+      tamMatriz=parseInt(tam.value);
+      tamMatriz=tamMatriz*tamMatriz;
+
+      console.log(tamMatriz)
+      $('#ima1').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      let matrizAux = new Array(tamMatriz);
+      matrizAux.fill(1);
+      limiteSup=(Math.sqrt(matrizAux.length)-1)/2;
+      limiteInf=((Math.sqrt(matrizAux.length)-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma+=matrizAux[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          pixels3[i*4]=suma/cont;
+          pixels3[i*4+1]=suma/cont;
+          pixels3[i*4+2]=suma/cont;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+
+    function ConvolucionBordesD(){
+      clear();
+      BN1();
+      tam=document.getElementById("TamMat");
+      console.log(tam.value)
+      tamMatriz=parseInt(tam.value);
+      //tamMatriz=tamMatriz*tamMatriz;
+
+      console.log(matriz)
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      limiteSup=(tamMatriz-1)/2;
+      limiteInf=((tamMatriz-1)/2)*-1;
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      col=image1.width;
+      ren=image1.height;
+      numPixels=image1.width*image1.height;
+
+      for(i=0;i<numPixels;i++){
+        cont=0;
+        suma=0;
+        for(j=limiteInf;j<limiteSup+1;j++){
+          for(y=limiteInf;y<limiteSup+1;y++){
+              suma=suma+matriz[cont]*pixels2[(i+col*j)*4-4*y];
+              cont=cont+1;
+          }
+        }
+          suma=suma>255?255:suma;
+          suma=suma<0?0:suma;
+          pixels3[i*4]=suma;
+          pixels3[i*4+1]=suma;
+          pixels3[i*4+2]=suma;
+
+      }
+      console.log("Ya acabé");
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+
+
+    }
+
+
+
+
+
+    function Suma(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx2.getImageData(0,0,canvas2.width,canvas2.height);
+        if ((image1.width!=image2.width) && (image1.height!=image2.height)){
+          $('#exampleModal').modal('toggle')
+          /*Estas son para cambiar el contenido de titulo y cuerpo
+          se remplaza el contenido anterior*/
+          $( "#titulo" ).html( "¡Error!" );
+          $( "#cuerpo" ).html( "Ingresa imagenes del mismo tamaño." );
+          $( "#txt" ).html(" ")
+          $( "#txt1" ).html("")
+          $( "#txt2" ).html("")
+          $( "#txt3" ).html("")
+          $( "#txt4" ).html("")
+          return 0;
+        }
+
+        image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels1=image1.data;
+        pixels2=image2.data;
+        pixels3=image3.data;
+        for (i = 0; i <(image1.width*image1.height); i++) {
+          r=(pixels1[i*4]+pixels2[i*4]);
+          r=r>255?255:r;
+          pixels3[i*4]=r;
+          g=(pixels1[i*4+1]+pixels2[i*4+1]);
+          g=g>255?255:g;
+          pixels3[i*4+1]=g;
+          b=(pixels1[i*4+2]+pixels2[i*4+2]);
+          b=b>255?255:b;
+          pixels3[i*4+2]=b;
+        }
+
+        canvas3.width=image3.width;
+        canvas3.height=image3.height;
+        ctx3.putImageData(image3,0,0);
+
+    }
+    //Normalizar Histogramas
+    function normalizarH(){
+      BN1();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      $('#ima4').removeClass('d-none');
+      $('#ima5').removeClass('d-none');
+      let histo = new Array(256);
+      histo.fill(0)
+      let histoA = new Array(256);
+      histoA.fill(0)
+      let histo1 = new Array(256);
+      histo1.fill(0)
+      var max=0;
+      var maxA=0;
+      image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx3.getImageData(0,0,600,900);
+      image4=ctx4.getImageData(0,0,canvas1.width,canvas1.height);
+      image5=ctx5.getImageData(0,0,600,900);
+      pixels1=image2.data;
+      pixels2=image3.data;
+      pixels3=image4.data;
+      pixels4=image5.data;
+      for (var i = 0; i <(image1.width*image1.height); i++){
+        histo[pixels1[i*4]]+=1;
+        if (histo[pixels1[i*4]]>max) {
+          max=histo[pixels1[i*4]];
+        }
+
+      }
+      canvas3.width=256*3;
+      canvas3.height=600;
+
+      for (i = 0; i < 256; i++) {
+        ctx3.fillStyle="red";
+        ctx3.fillRect(i*3+10,590-((histo[i]*560.0)/max),2,(histo[i]*560.0)/max);
+      }
+
+
+      suma=0;
+      for(i=0;i<256;i++){
+          suma = suma +histo[i];
+          histoA[i]=suma;
+      }
+      t=image1.width*image1.height;
+      for (var i = 0; i <(image1.width*image1.height); i++){
+        gris=(255*(histoA[pixels1[i*4]]-histoA[0])/(t-histoA[0]));
+        pixels3[i*4]=gris;
+        pixels3[i*4+1]=gris;
+        pixels3[i*4+2]=gris;
+        histo1[pixels3[i*4]]+=1;
+        if (histoA[pixels1[i*4]]>max) {
+          maxA=histoA[pixels1[i*4]];
+        }
+    }
+    canvas4.width=image1.width;
+    canvas4.height=image1.height;
+    ctx4.putImageData(image3,0,0);
+    /*
+    canvas4.width=256*3;
+    canvas4.height=600;
+
+    for (i = 0; i < 256; i++) {
+      ctx4.fillStyle="red";
+      ctx4.fillRect(i*3+10,590-((histo1[i]*560.0)/max),2,(histo1[i]*560.0)/maxA);
+    }*/
+
+
+    }
+
+    //And
+    function AND(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx2.getImageData(0,0,canvas2.width,canvas2.height);
+        var maxren=image1.width>image2.width?image2.width:image1.width;
+        var maxcol=image1.height>image2.height?image2.height:image1.height;
+        image3=ctx1.getImageData(0,0,maxren,maxcol);
+        pixels1=image1.data;
+        pixels2=image2.data;
+        pixels3=image3.data;
+        for (i = 0; i <(image1.width*image1.height); i++) {
+          pixels3[i*4]=(pixels1[i*4]&pixels2[i*4]);
+          pixels3[i*4+1]=(pixels1[i*4+1]&pixels2[i*4+1]);
+          pixels3[i*4+2]=(pixels1[i*4+2]&pixels2[i*4+2]);
+        }
+
+        canvas3.width=image3.width;
+        canvas3.height=image3.height;
+        ctx3.putImageData(image3,0,0);
+    }
+    //OR
+    function OR(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas2.width,canvas2.height);
+      var maxren=image1.width>image2.width?image2.width:image1.width;
+      var maxcol=image1.height>image2.height?image2.height:image1.height;
+      image3=ctx1.getImageData(0,0,maxren,maxcol);
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      for (i = 0; i <(image1.width*image1.height); i++) {
+        pixels3[i*4]=(pixels1[i*4]|pixels2[i*4]);
+        pixels3[i*4+1]=(pixels1[i*4+1]|pixels2[i*4+1]);
+        pixels3[i*4+2]=(pixels1[i*4+2]|pixels2[i*4+2]);
+      }
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+    }
+    //xOR
+    function XOR(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image2=ctx2.getImageData(0,0,canvas2.width,canvas2.height);
+      var maxren=image1.width>image2.width?image2.width:image1.width;
+      var maxcol=image1.height>image2.height?image2.height:image1.height;
+      image3=ctx1.getImageData(0,0,maxren,maxcol);
+      pixels1=image1.data;
+      pixels2=image2.data;
+      pixels3=image3.data;
+      for (i = 0; i <(image1.width*image1.height); i++) {
+        pixels3[i*4]=(pixels1[i*4]^pixels2[i*4]);
+        pixels3[i*4+1]=(pixels1[i*4+1]^pixels2[i*4+1]);
+        pixels3[i*4+2]=(pixels1[i*4+2]^pixels2[i*4+2]);
+      }
+      canvas3.width=image3.width;
+      canvas3.height=image3.height;
+      ctx3.putImageData(image3,0,0);
+    }
+    //H^istograma a colores
+    function histoC(){
+      clear();
+      let red = new Array(256);
+      red.fill(0)
+      let green = new Array(256);
+      green.fill(0)
+      let blue = new Array(256);
+      blue.fill(0)
+      var max=0;
+      image2=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      image3=ctx3.getImageData(0,0,600,900);
+      pixels2=image2.data;
+      pixels3=image3.data;
+      console.log(red);
+      for (i = 0; i <(image1.width*image1.height); i++){
+        red[pixels2[i*4]]+=1;
+        green[pixels2[i*4 + 1]]+=1;
+        blue[pixels2[i*4 + 2]]+=1;
+        max=red[pixels2[i*4]]>max?red[pixels2[i*4]]:max;
+        max=green[pixels2[i*4+1]]>max?green[pixels2[i*4+1]]:max;
+        max=blue[pixels2[i*4+2]]>max?blue[pixels2[i*4+2]]:max;
+      }
+      console.log(red);
+      console.log(green);
+      console.log(blue);
+      canvas3.width=256*7;
+      canvas3.height=600
+
+      for (i = 0; i < 256; i++) {
+        ctx3.fillStyle="red";
+        ctx3.fillRect(i*3+10,590-((red[i]*560.0)/max),2,(red[i]*560.0)/max);
+
+        ctx3.fillStyle="green";
+        ctx3.fillRect(i*3+12,590-((green[i]*560.0)/max),2,(green[i]*560.0)/max);
+
+        ctx3.fillStyle="blue";
+        ctx3.fillRect(i*3+14,590-((blue[i]*560.0)/max),2,(blue[i]*560.0)/max);
+      }
+
+    }
+    //Histograma a Grises
+    function histoG(){
+        clear();
+        BN1();
+        clear();
+        $('#ima1').removeClass('d-none');
+        $('#ima2').removeClass('d-none');
+        $('#ima3').removeClass('d-none');
+        let histo = new Array(256);
+        histo.fill(0)
+        var max=0;
+        image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image3=ctx3.getImageData(0,0,600,900);
+        pixels2=image2.data;
+        pixels3=image3.data;
+        console.log(histo);
+        for (var i = 0; i <(image1.width*image1.height); i++){
+          histo[pixels2[i*4]]+=1;
+          if (histo[pixels2[i*4]]>max) {
+            max=histo[pixels2[i*4]];
+          }
+
+        }
+        console.log(histo);
+        canvas3.width=256*3;
+        canvas3.height=600;
+
+        for (i = 0; i < 256; i++) {
+          ctx3.fillStyle="red";
+          ctx3.fillRect(i*3+10,590-((histo[i]*560.0)/max),2,(histo[i]*560.0)/max);
+        }
+        //canvas3.width=image3.width;
+        //canvas3.height=image3.height;
+        //ctx3.putImageData(image3,0,0);
+
+    }
+    //Aqui van los borden en BN
+    function bordesGH(){
+      clear();
+        BN();
+        clear();
+        $('#ima1').removeClass('d-none');
+        $('#ima2').removeClass('d-none');
+        $('#ima3').removeClass('d-none');
+        image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image3=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels2=image2.data;
+        pixels3=image3.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels3[i*4+0]=Math.abs(pixels2[(i+image1.width)*4+0 ]-pixels2[i*4+0]);
+          pixels3[i*4+1]=Math.abs(pixels2[(i+image1.width)*4+1 ]-pixels2[i*4+1]);
+          pixels3[i*4+2]=Math.abs(pixels2[(i+image1.width)*4+2 ]-pixels2[i*4+2]);
+        }
+
+        canvas3.width=image2.width;
+        canvas3.height=image2.height;
+        ctx3.putImageData(image3,0,0);
+    }
+    function bordesGV(){
+      clear();
+        BN();
+        clear();
+        $('#ima1').removeClass('d-none');
+        $('#ima2').removeClass('d-none');
+        $('#ima3').removeClass('d-none');
+        image3=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels3=image3.data;
+        pixels2=image2.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels3[i*4+0]=Math.abs(pixels2[(i+1)*4+0 ]-pixels2[i*4+0]);
+          pixels3[i*4+1]=Math.abs(pixels2[(i+1)*4+1 ]-pixels2[i*4+1]);
+          pixels3[i*4+2]=Math.abs(pixels2[(i+1)*4+2 ]-pixels2[i*4+2]);
+        }
+
+        canvas3.width=image2.width;
+        canvas3.height=image2.height;
+        ctx3.putImageData(image3,0,0);
+    }
+    function bordesGD(){
+      clear();
+      BN();
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+        image3=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels3=image3.data;
+        pixels2=image2.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels3[i*4+0]=Math.abs(pixels2[(i+image1.width+1)*4+0 ]-pixels2[i*4+0]);
+          pixels3[i*4+1]=Math.abs(pixels2[(i+image1.width+1)*4+1 ]-pixels2[i*4+1]);
+          pixels3[i*4+2]=Math.abs(pixels2[(i+image1.width+1)*4+2 ]-pixels2[i*4+2]);
+        }
+
+        canvas3.width=image2.width;
+        canvas3.height=image2.height;
+        ctx3.putImageData(image3,0,0);
+    }
+    function bordesGT(){
+      clear();
+        BN();
+        clear();
+        $('#ima1').removeClass('d-none');
+        $('#ima2').removeClass('d-none');
+        $('#ima3').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image3=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image4=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        image5=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels1=image1.data;
+        pixels2=image2.data;
+        pixels3=image3.data;
+        pixels4=image4.data;
+        pixels5=image5.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels3[i*4+0]=Math.abs(pixels2[(i+image1.width)*4+0 ]-pixels2[i*4+0]);
+          pixels3[i*4+1]=Math.abs(pixels2[(i+image1.width)*4+1 ]-pixels2[i*4+1]);
+          pixels3[i*4+2]=Math.abs(pixels2[(i+image1.width)*4+2 ]-pixels2[i*4+2]);
+
+
+          pixels4[i*4+0]=Math.abs(pixels2[(i+1)*4+0 ]-pixels2[i*4+0]);
+          pixels4[i*4+1]=Math.abs(pixels2[(i+1)*4+1 ]-pixels2[i*4+1]);
+          pixels4[i*4+2]=Math.abs(pixels2[(i+1)*4+2 ]-pixels2[i*4+2]);
+
+
+          pixels5[i*4+0]=Math.abs(pixels2[(i+image1.width+1)*4+0 ]-pixels2[i*4+0]);
+          pixels5[i*4+1]=Math.abs(pixels2[(i+image1.width+1)*4+1 ]-pixels2[i*4+1]);
+          pixels5[i*4+2]=Math.abs(pixels2[(i+image1.width+1)*4+2 ]-pixels2[i*4+2]);
+
+          pixels3[i*4+0]=Math.max(pixels3[i*4+0],pixels4[i*4+0],  pixels5[i*4+0]);
+          pixels3[i*4+1]=Math.max(pixels3[i*4+1],pixels4[i*4+1],  pixels5[i*4+1]);
+          pixels3[i*4+2]=Math.max(pixels3[i*4+2],pixels4[i*4+2],  pixels5[i*4+2]);
+
+        }
+
+        canvas3.width=image2.width;
+        canvas3.height=image2.height;
+        ctx3.putImageData(image3,0,0);
+    }
+
+    //Aqui van los bordes a color
+    //Horizontales
+    function bordesCH(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels1=image1.data;
+        pixels2=image2.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels2[i*4+0]=Math.abs(pixels1[(i+image1.width)*4+0 ]-pixels1[i*4+0]);
+          pixels2[i*4+1]=Math.abs(pixels1[(i+image1.width)*4+1 ]-pixels1[i*4+1]);
+          pixels2[i*4+2]=Math.abs(pixels1[(i+image1.width)*4+2 ]-pixels1[i*4+2]);
+        }
+
+        canvas2.width=image2.width;
+        canvas2.height=image2.height;
+        ctx2.putImageData(image2,0,0);
+    }
+    //Verticales
+    function bordesCV(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels1=image1.data;
+        pixels2=image2.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels2[i*4+0]=Math.abs(pixels1[(i+1)*4+0 ]-pixels1[i*4+0]);
+          pixels2[i*4+1]=Math.abs(pixels1[(i+1)*4+1 ]-pixels1[i*4+1]);
+          pixels2[i*4+2]=Math.abs(pixels1[(i+1)*4+2 ]-pixels1[i*4+2]);
+        }
+
+        canvas2.width=image2.width;
+        canvas2.height=image2.height;
+        ctx2.putImageData(image2,0,0);
+    }
+    //Diagonales
+    function bordesCD(){
+        clear();
+        $('#ima1').removeClass('d-none');
+        $('#ima2').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels1=image1.data;
+        pixels2=image2.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels2[i*4+0]=Math.abs(pixels1[(i+image1.width+1)*4+0 ]-pixels1[i*4+0]);
+          pixels2[i*4+1]=Math.abs(pixels1[(i+image1.width+1)*4+1 ]-pixels1[i*4+1]);
+          pixels2[i*4+2]=Math.abs(pixels1[(i+image1.width+1)*4+2 ]-pixels1[i*4+2]);
+        }
+
+        canvas2.width=image2.width;
+        canvas2.height=image2.height;
+        ctx2.putImageData(image2,0,0);
+    }
+
+    function bordesCT(){
+        clear();
+        $('#ima1').removeClass('d-none');
+        $('#ima2').removeClass('d-none');
+        image1=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image2=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image3=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image4=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image5=ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        pixels1=image1.data;
+        pixels2=image2.data;
+        pixels3=image3.data;
+        pixels4=image4.data;
+        pixels5=image5.data;
+
+        j=1;
+        for (i = 0; i <(image1.width*(image1.height-1)) ; i++) {
+          pixels2[i*4+0]=Math.abs(pixels1[(i+image1.width)*4+0 ]-pixels1[i*4+0]);
+          pixels2[i*4+1]=Math.abs(pixels1[(i+image1.width)*4+1 ]-pixels1[i*4+1]);
+          pixels2[i*4+2]=Math.abs(pixels1[(i+image1.width)*4+2 ]-pixels1[i*4+2]);
+
+
+          pixels3[i*4+0]=Math.abs(pixels1[(i+1)*4+0 ]-pixels1[i*4+0]);
+          pixels3[i*4+1]=Math.abs(pixels1[(i+1)*4+1 ]-pixels1[i*4+1]);
+          pixels3[i*4+2]=Math.abs(pixels1[(i+1)*4+2 ]-pixels1[i*4+2]);
+
+
+          pixels4[i*4+0]=Math.abs(pixels1[(i+image1.width+1)*4+0 ]-pixels1[i*4+0]);
+          pixels4[i*4+1]=Math.abs(pixels1[(i+image1.width+1)*4+1 ]-pixels1[i*4+1]);
+          pixels4[i*4+2]=Math.abs(pixels1[(i+image1.width+1)*4+2 ]-pixels1[i*4+2]);
+
+          pixels2[i*4+0]=Math.max(pixels2[i*4+0],pixels3[i*4+0],  pixels4[i*4+0]);
+          pixels2[i*4+1]=Math.max(pixels2[i*4+1],pixels3[i*4+1],  pixels4[i*4+1]);
+          pixels2[i*4+2]=Math.max(pixels2[i*4+2],pixels3[i*4+2],  pixels4[i*4+2]);
+
+        }
+
+        canvas2.width=image2.width;
+        canvas2.height=image2.height;
+        ctx2.putImageData(image2,0,0);
+    }
+
+
+    //Degradados
+    function degradadoH(){
+      clear();
+      BN();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      dr = (R2-R1)/image1.height*1.0;
+      dg = (G2-G1)/image1.height*1.0;
+      db = (B2-B1)/image1.height*1.0;
+      console.log(dr);
+      console.log(db);
+      console.log(db);
+      image3=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      pixels3 = image3.data;
+      RA=R1;
+      GA=G1;
+      BA=B1;
+      for (i = 0; i < (image1.width*image1.height); i++) {
+
+          pixels3[i * 4 + 0]=pixels3[i * 4 + 0]*(R1)/255.0;
+          pixels3[i * 4 + 1]=pixels3[i * 4 + 1]*(G1)/255.0;
+          pixels3[i * 4 + 2]=pixels3[i * 4 + 2]*(B1)/255.0;
+          if(i%image1.width==0){
+              R1=R1+dr*1;
+              G1=G1+dg*1;
+              B1=B1+db*1;
+          }
+      }
+
+      R1=RA;
+      G1=GA;
+      B1=BA;
+      canvas3.width=image1.width;
+      canvas3.height=image1.height;
+      ctx3.putImageData(image3,0,0);
+    }
+
+    function degradadoV(){
+      clear();
+      BN();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      dr = (R2-R1)/image1.width*1.0;
+      dg = (G2-G1)/image1.width*1.0;
+      db = (B2-B1)/image1.width*1.0;
+      console.log(dr);
+      console.log(db);
+      console.log(db);
+      image3=ctx2.getImageData(0,0,canvas1.width,canvas1.height);
+      pixels3 = image3.data;
+      RA=R1;
+      GA=G1;
+      BA=B1;
+      for (i = 0; i < (image1.width*image1.height); i++) {
+          pixels3[i * 4 + 0]=pixels3[i * 4 + 0]*(R1)/255.0;
+          pixels3[i * 4 + 1]=pixels3[i * 4 + 1]*(G1)/255.0;
+          pixels3[i * 4 + 2]=pixels3[i * 4 + 2]*(B1)/255.0;
+          R1=R1+dr*1;
+          G1=G1+dg*1;
+          B1=B1+db*1;
+          if(i%image1.width==0){
+              R1=RA;
+              G1=GA;
+              B1=BA;
+          }
+      }
+      R1=RA;
+      G1=GA;
+      B1=BA;
+
+      canvas3.width=image1.width;
+      canvas3.height=image1.height;
+      ctx3.putImageData(image3,0,0);
+    }
+    function colorear(){
+      clear();
+      BN();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      image3 = ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      pixels3 = image3.data;
+      for(i=0;i<(image2.width*image2.height);i++){
+        pixels3[i * 4 + 0]=pixels3[i * 4 + 0]*(R1/255);
+        pixels3[i * 4 + 1]=pixels3[i * 4 + 1]*(G1/255);
+        pixels3[i * 4 + 2]=pixels3[i * 4 + 2]*(B1/255);
+      }
+      canvas3.width=image2.width;
+      canvas3.height=image2.height;
+      ctx3.putImageData(image3,0,0);
+
+    }
+
+    function negativo(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      image2 = ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+      pixels1 = image2.data;
+      for(i=0;i<(image2.width*image2.height);i++){
+        pixels1[i * 4 + 0]=255-pixels1[i * 4 + 0];
+        pixels1[i * 4 + 1]=255-pixels1[i * 4 + 1];
+        pixels1[i * 4 + 2]=255-pixels1[i * 4 + 2];
+      }
+      canvas2.width=image2.width;
+      canvas2.height=image2.height;
+      ctx2.putImageData(image2,0,0);
+    }
+
+    function separar(){
+      clear();
+      $('#ima1').removeClass('d-none');
+      $('#ima2').removeClass('d-none');
+      $('#ima3').removeClass('d-none');
+      $('#ima4').removeClass('d-none');
+        image2 = ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image3 = ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+        image4 = ctx1.getImageData(0,0,canvas1.width,canvas1.height);
+
+        pixels1 = image2.data;
+        pixels2 = image3.data;
+        pixels3 = image4.data;
+        for(i=0;i<(image2.width*image2.height);i++){
+          pixels1[ i * 4 + 0 ] = pixels1[ i * 4 + 1 ] = 0;
+          pixels2[ i * 4 + 0 ] = pixels2[ i * 4 + 2 ] = 0;
+          pixels3[ i * 4 + 1 ] = pixels3[ i * 4 + 2 ] = 0;
+        }
+        canvas2.width = canvas3.width = canvas4.width = image2.width;
+        canvas2.height = canvas3.height = canvas4.height = image2.height;
+        ctx2.putImageData(image2, 0, 0);
+        ctx3.putImageData(image3, 0, 0);
+        ctx4.putImageData(image4, 0, 0);
+    }
+
+
+   function BN(){
+     clear();
+     $('#ima1').removeClass('d-none');
+     $('#ima2').removeClass('d-none');
+       image2 = ctx1.getImageData( 0, 0, canvas1.width, canvas1.height );
+       pixels = image2.data;
+       numPixels = image2.width * image2.height;
+       for ( var i = 0; i < numPixels; i++ ){
+          pixels[ i * 4 ] = pixels[ i * 4 + 1 ] = pixels[ i * 4 + 2 ] = ((pixels[ i * 4 + 0 ]*0.07)+(pixels[ i * 4 + 1 ]*0.071)+(pixels[ i * 4 + 2 ]*0.21))
+      }
+      canvas2.width =  image2.width;
+      canvas2.height = image2.height;
+      ctx2.putImageData( image2, 0, 0 );
+  }
+  function selecA(){
+    clear();
+    $('#exampleModal').modal('toggle')
+    /*Estas son para cambiar el contenido de titulo y cuerpo
+    se remplaza el contenido anterior*/
+    $( "#titulo" ).html( "SELECCIONAR ÁREA" );
+    $( "#cuerpo" ).html( "1.- Da click en cualquier parte de la imagen. " );
+    $( "#txt" ).html(" 2.- Arrastra el mouse para seleccionar un área, no es necesario dejar el click sostenido. ")
+    $( "#txt1" ).html(" 3.- Da un segundo click para que se deje de pintar el área.")
+    $( "#txt2" ).html(" 4.- Puedes hacer clicks las veces que quieras, pero las áreas siempre se reinician. ")
+    $( "#txt3" ).html(" ")
+    $( "#txt4" ).html("")
+    $('#ima1').addClass('d-none');
+    $('#ima5').removeClass('d-none');
+    image5=ctx1.getImageData(0,0,image1.width,image1.height);
+    canvas5.width =  image1.width;
+    canvas5.height = image1.height;
+    ctx5.putImageData( image5, 0, 0 );
+
+  }
+  function oMousePos(canvas, evt) {
+      var ClientRect = canvas.getBoundingClientRect();
+      return { //objeto
+          x: Math.ceil(evt.clientX - ClientRect.left),
+          y: Math.ceil(evt.clientY - ClientRect.top)
+      }
+    }
+
+    canvas5.addEventListener("click",(evt)=>{
+      pos=oMousePos(canvas5, evt);
+      if(!numClick){
+        corx1=pos.x;
+        cory1=pos.y;
+      }
+      numClick=!numClick;
+
+      console.log(numClick);
+    })
+  canvas5.addEventListener("mousemove",(evt)=>{
+    $('#ima1').addClass('d-none');
+    if(numClick){
+        pos1=oMousePos(canvas5, evt);
+        corinitx=corx1;
+        corx2=pos1.x;
+        corinity=cory1;
+        cory2=pos1.y;
+        console.log(corx1);
+        console.log(cory1);
+        console.log(corx2);
+        console.log(cory2);
+        if (corx1>corx2) {
+          corinitx=corx2;
+          corfinx=corx1;
+        }else {
+          corinitx=corx1;
+          corfinx=corx2;
+        }
+        if (cory1>cory2) {
+          corinity=cory2;
+          corfiny=cory1;
+        }else {
+          corinity=cory1;
+          corfiny=cory2;
+        }
+        image1 = ctx1.getImageData( 0, 0, canvas1.width, canvas1.height );
+        image5 = ctx5.getImageData( 0, 0, canvas1.width, canvas1.height );
+        pixels1 = image1.data;
+        pixels2 = image5.data;
+        for ( i = 0; i < (image5.width * image5.height); i++ ){
+
+          if ((i%image1.width)>=corinitx && (i%image1.width)<=corfinx && (i/image1.width)>=corinity && (i/image1.width)<=corfiny) {
+              pixels2[ i * 4 ] = pixels1[ i * 4 ];
+              pixels2[ i * 4 + 1 ] = pixels1[ i * 4 + 1 ];
+              pixels2[ i * 4 + 2 ] = pixels1[ i * 4 + 2 ];
+          }else {
+              pixels2[ i * 4 ] = pixels2[ i * 4 + 1 ] = pixels2[ i * 4 + 2 ] =((pixels1[ i * 4 + 2 ]*0.07)+(pixels1[ i * 4 + 1 ]*0.071)+(pixels1[ i * 4 + 0 ]*0.21));
+
+          }
+       }
+       canvas5.width =  image1.width;
+       canvas5.height = image1.height;
+       ctx5.putImageData( image5, 0, 0 );
+
+
+
+    }
+  })
+
+function BN1(){
+  clear();
+  $('#ima1').removeClass('d-none');
+  $('#ima2').removeClass('d-none');
+    image2 = ctx1.getImageData( 0, 0, canvas1.width, canvas1.height );
+    pixels = image2.data;
+    numPixels = image2.width * image2.height;
+    for ( var i = 0; i < numPixels; i++ ){
+      gris = (pixels[ i * 4 ] + pixels[ i * 4 + 1]+pixels[ i * 4 + 1])/3;
+      pixels[ i * 4 ] =gris;
+      pixels[ i * 4 + 1 ] =gris;
+      pixels[ i * 4 + 2 ] = gris;
+   }
+   canvas2.width =  image2.width;
+   canvas2.height = image2.height;
+   ctx2.putImageData( image2, 0, 0 );
+
+
+}
+
+var fileTypes = [
+      'image/jpeg',
+      'image/pjpeg',
+      'image/png'
+]
+function validFileType(file){
+    for(var i = 0; i < fileTypes.length; i++)
+    {
+      if(file.type === fileTypes[i])
+            return true;
+      }
+}
+function updateImageDisplay()
+{
+    var curFile = input.files;
+    source = curFile[0].name;
+}
+
+function letra(letra)
+{
+    if(letra=='0')
+        return 0;
+    if(letra=='1')
+        return 1;
+    if(letra=='2')
+        return 2;
+    if(letra=='3')
+        return 3;
+    if(letra=='4')
+         return 4;
+    if(letra=='5')
+        return 5;
+    if(letra=='6')
+        return 6;
+    if(letra=='7')
+        return 7;
+    if(letra=='8')
+        return 8;
+    if(letra=='9')
+        return 9;
+    if(letra=='a')
+        return 10;
+    if(letra=='b')
+        return 11;
+    if(letra=='c')
+        return 12;
+    if(letra=='d')
+        return 13;
+    if(letra=='e')
+        return 14;
+    if(letra=='f')
+        return 15;
+   }
+    function updateColor1(event){
+      R1=16*letra(event.target.value[1])+letra(event.target.value[2]);
+      G1=16*letra(event.target.value[3])+letra(event.target.value[4]);
+      B1=16*letra(event.target.value[5])+letra(event.target.value[6]);
+    }
+   function updateColor2(event){
+     R2=16*letra(event.target.value[1])+letra(event.target.value[2]);
+     G2=16*letra(event.target.value[3])+letra(event.target.value[4]);
+     B2=16*letra(event.target.value[5])+letra(event.target.value[6]);
+  }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+
+        $('.botonF1').hover(function(){
+            $('.btn').addClass('animacionVer');
+       })
+       $('.contenedor').mouseleave(function(){
+          $('.btn').removeClass('animacionVer');
+      })
+    </script>
+</body>
+
+</html>
+  <body>
